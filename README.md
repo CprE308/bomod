@@ -1,5 +1,5 @@
 # Buffer Overflow Module (bomod)
-This project is a fork of the [original Buffer Overflow Module](http://nsfsecurity.pr.erau.edu/bom/) created by [NSF Award No. 0113627](http://www.nsf.gov/awardsearch/showAward?AWD_ID=0113627).
+This project is a fork (and [mirror](./mirror/README.md)) of the [original Buffer Overflow Module](http://nsfsecurity.pr.erau.edu/bom/) created by [NSF Award No. 0113627](http://www.nsf.gov/awardsearch/showAward?AWD_ID=0113627). The fork provides modifications to the interactive demos that enables the demos to run locally in a modern Java Runtime Environment. The fork also adds the option of a presentation mode color scheme to the demos for low contrast projectors used in classroom environments. The [mirror](./mirror/README.md) contained in this repository is an indexed copy of the materials originally hosted at [http://nsfsecurity.pr.erau.edu](http://nsfsecurity.pr.erau.edu) before the subdomain became inaccessible.
 
 ## Module Overview
 
@@ -12,11 +12,23 @@ This project is a fork of the [original Buffer Overflow Module](http://nsfsecuri
 Source: [http://nsfsecurity.pr.erau.edu/modules.html](http://nsfsecurity.pr.erau.edu/modules.html)
 
 ## Changes to Module
-The original demos were created as Java Applets to be viewed through a web browser by educators and students.  At the time this project was originally created deploying the demos as a Java web applet was a simple distribution method, but this is now no longer the case.  Security vulnerabilities involving Java applets were abused so widely that most modern browsers have completely disabled support for Java applets, making it extremely difficult to run the original demos.  This repository contains minor changes to the source to redeploy the demos as a Java application that can be downloaded and run locally on any modern operating system.
+The original demos were created as Java Applets to be viewed through a web browser by educators and students.  At the time this project was originally created deploying the demos as a Java web applet was a simple distribution method, but this is now no longer the case.  Security vulnerabilities involving Java applets were abused so widely that most modern browsers have completely disabled support for Java applets, making it extremely difficult to run the original demos.  This repository contains minor changes to the source to redeploy the demos as a Java application that can be downloaded and run locally on any modern operating system. Additionally, an alternative color scheme was defined to make presentations on low contrast projector's easier to see.
 
 This repository has made the following changes to the original demo source code.
 
 ## Change Log
+
+**[Release 4](https://github.com/benjholla/bomod/releases/tag/bomod_r4)**
+
+1. Made code and memory display text bold
+2. Added [mirror](./mirror/README.md) of original materials now that the materials are no longer accessible on original host
+
+**[Release 3](https://github.com/benjholla/bomod/releases/tag/bomod_r3)**
+
+1. Parameterized more display settings
+2. Added a presentation mode option since the default setting was hard to see on some low contrast projectors (each demo now prompts the user to select between presentation or classic color scheme modes)
+3. Bug fix for display glitch on resetting demos
+
 **[Release 2](https://github.com/benjholla/bomod/releases/tag/bomod_r2)**
 
 1. Refined example code to use standard variable/function naming conventions
@@ -35,12 +47,22 @@ This repository has made the following changes to the original demo source code.
 7. Minor display tweaks in demo graphics
 
 ## Running Demos
-This repository contains a `demos` folder with an executable JAR file for each demo (released previously as a Java web applet). To run a demo simply double click on the corresponding JAR file or invoke it directly from the command line (example: `java -jar SmasherDemo.jar`).
+This repository contains a `demos` folder with an executable JAR file for each demo (released previously as a Java web applet). To run a demo simply double click on the corresponding JAR file or invoke it directly from the command line (example: `java -jar SmasherDemo.jar`). At the prompt select either the classic or presentation mode color scheme.
 
-![Smasher Demo Screenshot](screenshot.png)
+### Classic Color Scheme
+
+This classic mode color scheme is a slightly modified color scheme corresponding to the original release.
+
+![Smasher Demo Screenshot](screenshot_classic_mode.png)
+
+### Presentation Mode Color Color Scheme
+
+The presentation mode color scheme is a color scheme that should lend itself better to presentations on low contrast projectors typically used in a classroom setting.
+
+![Smasher Demo Screenshot](screenshot_presentation_mode.png)
 
 ## Demo Descriptions
-The following descriptions of each demo are taken from [http://nsfsecurity.pr.erau.edu/bom/](http://nsfsecurity.pr.erau.edu/bom/).  Instructors should read the [Instructors' Guide for Demonstrating Buffer Overflows](http://nsfsecurity.pr.erau.edu/bom_docs/Demos/script.html) for additional details.
+The following descriptions of each demo are taken from [http://nsfsecurity.pr.erau.edu/bom/](http://nsfsecurity.pr.erau.edu/bom/).  Instructors should read the [Instructors' Guide for Demonstrating Buffer Overflows](./mirror/instructor_guide.md) for additional details.
 
 1. **Jumps**: Shows how stacks are used to keep track of subroutine calls.
 2. **Stacks**: An introduction to the way languages like C use stack frames to store local variables, pass variables from function to function by value and by reference, and also return control to the calling subroutine when the called subroutine exits. 
@@ -55,4 +77,4 @@ The following descriptions of each demo are taken from [http://nsfsecurity.pr.er
 - The color of the C code for each subroutine matches the color of the corresponding subroutine memory location.
 - A `$` indicates a return pointer to the subroutine with the same color as the `$` address.
 - A `?` indicates a stack canary.  If the value of a canary changes, then the stack guard check will fail.
-- For additional details see [http://nsfsecurity.pr.erau.edu/bom_docs/ppts/IntroToBOmod.ppt](http://nsfsecurity.pr.erau.edu/bom_docs/ppts/IntroToBOmod.ppt).
+- For additional details see the [Demo Interaction Guide](./mirror/HowToUseApplet.pdf).
